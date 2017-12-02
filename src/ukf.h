@@ -32,7 +32,7 @@ public:
   MatrixXd Xsig_pred_;
 
   ///* time when the state is true, in us
-  long long time_us_;
+  long long previous_t;
 
   ///* Process noise standard deviation longitudinal acceleration in m/s^2
   double std_a_;
@@ -66,12 +66,6 @@ public:
 
   ///* Sigma point spreading parameter
   double lambda_;
-
-  ///* the current NIS for radar
-  double NIS_radar_;
-
-  ///* the current NIS for laser
-  double NIS_laser_;
 
 
   /**
