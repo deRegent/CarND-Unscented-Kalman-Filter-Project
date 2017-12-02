@@ -134,7 +134,7 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
 	*					Control structure similar to EKF project			*
 	****************************************************************************/
 	
-	delta_t = (meas_package.timestamp_ - previous_t)/1000000.0;
+	float delta_t = (meas_package.timestamp_ - previous_t)/1000000.0;
 	Prediction(delta_t);
 
 	// use different update functions for different sensors
