@@ -303,7 +303,7 @@ void UKF::UpdateLidar(MeasurementPackage meas_package) {
 		Zsig(1, i) = p_y;
 	}
 
-	Update(n_z, Zsig, false);
+	Update(meas_package.raw_measurements_, n_z, Zsig, false);
 }
 
 /**
@@ -349,10 +349,10 @@ void UKF::UpdateRadar(MeasurementPackage meas_package) {
 		Zsig(2, i) = r_dot;
 	}
 
-	Update(n_z, Zsig, true);
+	Update(meas_package.raw_measurements_, n_z, Zsig, true);
 }
 
-void UKF::Update(int n_z, MatrixXd Zsig, bool is_radar){
+void UKF::Update(VectorXd measurements, int n_z, MatrixXd Zsig, bool is_radar){
 
 	//mean predicted measurement
 	VectorXd z_pred = VectorXd(n_z);
@@ -426,7 +426,7 @@ void UKF::Update(int n_z, MatrixXd Zsig, bool is_radar){
 	MatrixXd K = Tc * S.inverse();
 
 	//residual
-	VectorXd z_diff = z - z_pred;
+	VectorXd z_diff = measurements - z_pred;
 
 	if (is_radar){
 		//angle normalization
