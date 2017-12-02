@@ -303,7 +303,7 @@ void UKF::UpdateLidar(MeasurementPackage meas_package) {
 		Zsig(1, i) = p_y;
 	}
 
-	Update(n_z, Zsig, meas_package.sensor_type_);
+	Update(n_z, Zsig, false);
 }
 
 /**
@@ -349,12 +349,10 @@ void UKF::UpdateRadar(MeasurementPackage meas_package) {
 		Zsig(2, i) = r_dot;
 	}
 
-	Update(n_z, Zsig, meas_package.sensor_type_);
+	Update(n_z, Zsig, true);
 }
 
-void UKF::Update(int n_z, MatrixXd Zsig, MeasurementPackage.SensorType sensorType){
-
-	bool is_radar = sensorType == MeasurementPackage::RADAR;
+void UKF::Update(int n_z, MatrixXd Zsig, bool is_radar){
 
 	//mean predicted measurement
 	VectorXd z_pred = VectorXd(n_z);

@@ -107,7 +107,7 @@ public:
    * Common code for UpdateLidar and UpdateRadar
    * @param meas_package The measurement at k+1
    */
-  void UKF::Update(int n_z, MatrixXd Zsig, MeasurementPackage.SensorType sensorType);
+  void UKF::Update(int n_z, MatrixXd Zsig, bool is_radar);
 
     /**
    * Calculates NIS
