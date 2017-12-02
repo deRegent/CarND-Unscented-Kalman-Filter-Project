@@ -354,7 +354,7 @@ void UKF::UpdateRadar(MeasurementPackage meas_package) {
 
 void UKF::Update(int n_z, MatrixXd Zsig, MeasurementPackage.SensorType sensorType){
 
-	bool is_radar == MeasurementPackage::RADAR;
+	bool is_radar = sensorType == MeasurementPackage::RADAR;
 
 	//mean predicted measurement
 	VectorXd z_pred = VectorXd(n_z);
