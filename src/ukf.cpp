@@ -441,6 +441,6 @@ void UKF::Update(VectorXd measurements, int n_z, MatrixXd Zsig, bool is_radar){
 	double NIS = CalculateNIS(z_diff, S);
 }
 
-void UKF::CalculateNIS(VectorXd z_diff, MatrixXd S){
+double UKF::CalculateNIS(VectorXd z_diff, MatrixXd S){
 	return z_diff.transpose() * S.inverse() * z_diff;
 }
