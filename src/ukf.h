@@ -107,12 +107,12 @@ public:
    * Common code for UpdateLidar and UpdateRadar
    * @param meas_package The measurement at k+1
    */
-  void UKF::Update(VectorXd measurements, int n_z, MatrixXd Zsig, bool is_radar);
+  void Update(VectorXd measurements, int n_z, MatrixXd Zsig, bool is_radar);
 
     /**
    * Calculates NIS
    */
-  void UKF::CalculateNIS(VectorXd z_diff, MatrixXd S);
+  void CalculateNIS(VectorXd z_diff, MatrixXd S);
 };
 
 #endif /* UKF_H */
