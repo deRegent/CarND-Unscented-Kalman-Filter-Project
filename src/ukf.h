@@ -112,7 +112,7 @@ public:
     /**
    * Calculates NIS
    */
-  void CalculateNIS(VectorXd z_diff, MatrixXd S);
+  double CalculateNIS(VectorXd z_diff, MatrixXd S);
 };
 
 #endif /* UKF_H */
